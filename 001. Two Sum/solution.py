@@ -1,18 +1,14 @@
 #!python3
 
-
 class Solution:
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        dic = {}
-        for index, num in enumerate(nums):
-            if num in dic:
-                return [dic[num], index]
-            dic[target - num] = index
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {} # python dict, 
+        for idx, item in enumerate(nums):
+            want = target - item
+            if want in hashmap: # o(1) for python dict in operation
+                return [hashmap[want],idx]
+            hashmap[item] = idx # keys are unique
+        
 
 
 if __name__ == "__main__":
